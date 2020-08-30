@@ -18,6 +18,8 @@ Then add **hubot-robertsrules** to your `external-scripts.json`:
 ]
 ```
 
+**Important**: you need at least Node 10.
+
 ## Sample Interaction
 
 ```

@@ -38,10 +38,11 @@
     "sinon": "^1.13.0",
     "sinon-chai": "^2.7.0"
   },
-
   "main": "index.coffee",
-
   "scripts": {
     "test": "grunt test"
+  },
+  "engine": {
+    "node": ">=10.0"
   }
 }
