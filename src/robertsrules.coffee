@@ -84,11 +84,11 @@ reportAttendees = (res) ->
 
 module.exports = (robot) ->
 
-  robot.respond /^start meeting$/, (res) ->
+  robot.respond /start meeting/, (res) ->
     meeting = robertsRules()
     res.send 'I have prepared the meeting.'
 
-  robot.respond /^end meeting$/, (res) ->
+  robot.respond /end meeting/, (res) ->
     meeting = null
     res.send 'I have ended the meeting.'
 
@@ -122,5 +122,5 @@ module.exports = (robot) ->
   robot.hear /^present\-(?<name> .+)?$/, wrapRequireMeeting presentMinus
 
   # who's here? and variants
-  robot.respond /^who('| i)s here\?$/, wrapRequireMeeting reportAttendees
-  robot.respond /^who('| i)s on the (phone|phone call|call|video|videocall|video call|)\?$/, wrapRequireMeeting reportAttendees
+  robot.respond /who('| i)s here\?/, wrapRequireMeeting reportAttendees
+  robot.respond /who('| i)s on the (phone|phone call|call|video|videocall|video call|)\?/, wrapRequireMeeting reportAttendees
