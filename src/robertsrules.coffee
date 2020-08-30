@@ -118,6 +118,9 @@ module.exports = (robot) ->
   # present+ and variants
   robot.hear /^present\+(?<name> .+)?$/, wrapRequireMeeting presentPlus
 
+  # present- and variants
+  robot.hear /^present\-(?<name> .+)?$/, wrapRequireMeeting presentMinus
+
   # who's here? and variants
   robot.respond /^who('| i)s here\?$/, wrapRequireMeeting reportAttendees
   robot.respond /^who('| i)s on the (phone|phone call|call|video|videocall|video call|)\?$/, wrapRequireMeeting reportAttendees
