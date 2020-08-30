@@ -4,25 +4,20 @@
   "version": "0.0.0",
   "author": "AJ Jordan <alex@strugee.net>",
   "license": "MIT",
-
   "keywords": "hubot, hubot-scripts",
-
   "repository": {
     "type": "git",
     "url": "git://github.com/hubot-scripts/hubot-robertsrules.git"
   },
-
   "bugs": {
     "url": "https://github.com/hubot-scripts/hubot-robertsrules/issues"
   },
-
   "dependencies": {
+    "roberts-rules": "git+https://github.com/strugee/node-roberts-rules.git#c64b14e09c93400a81a91cfbfca199cb8a45c4e1"
   },
-
   "peerDependencies": {
     "hubot": "2.x"
   },
-
   "devDependencies": {
     "hubot-test-helper": "^1.3.0",
     "chai": "^2.1.1",
