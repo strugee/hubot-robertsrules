@@ -5,8 +5,16 @@
 #   LIST_OF_ENV_VARS_TO_SET
 #
 # Commands:
-#   hubot hello - <what the respond trigger does>
 #   orly - <what the hear trigger does>
+#   hubot start meeting - start a new meeting
+#   hubot end meeting - end the ongoing meeting
+#   hubot who's here - list the people currently present for the meeting
+#   present+ <name> - list yourself or (if present) <name> as present for the meeting
+#   present- <name> - list yourself or (if present) <name> as no longer present for the meeting
+#   q+/queue+ <name> - add yourself or (if present) <name> to the speaker queue
+#   q-/queue- <name> - remove yourself or (if present) <name> from the speaker queue
+#   q?/queue?/who's on queue - announce the speaker queue
+#   ack/recognize <name> - acknowledge <name> to speak and remove them from the speaker queue
 #
 # Notes:
 #   <optional notes required for the script>
