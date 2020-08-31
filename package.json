@@ -21,6 +21,7 @@
   "devDependencies": {
     "chai": "^2.1.1",
     "coffee-script": "1.6.3",
+    "coveralls": "^3.1.0",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
     "grunt-contrib-watch": "~0.6.1",
@@ -36,13 +37,17 @@
   },
   "main": "index.coffee",
   "scripts": {
-    "test": "nyc grunt test"
+    "test": "nyc -r text -r lcov grunt test"
   },
   "engine": {
     "node": ">=10.0"
   },
   "nyc": {
-    "extension": [".coffee"],
-    "include": ["src/"]
+    "extension": [
+      ".coffee"
+    ],
+    "include": [
+      "src/"
+    ]
   }
 }

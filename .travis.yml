@@ -1,11 +1,6 @@
 language: node_js
 node_js:
-  - "0.12"
-  - "0.10"
-  - "iojs"
-sudo: false
-cache:
-  directories:
-    - node_modules
-notifications:
-  email: false
+  - 10
+  - 12
+  - 14
+after_script: ./node_modules/.bin/coveralls < coverage/lcov.info
