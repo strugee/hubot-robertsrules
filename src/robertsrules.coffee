@@ -5,7 +5,6 @@
 #   LIST_OF_ENV_VARS_TO_SET
 #
 # Commands:
-#   orly - <what the hear trigger does>
 #   hubot start meeting - start a new meeting
 #   hubot end meeting - end the ongoing meeting
 #   hubot who's here - list the people currently present for the meeting
