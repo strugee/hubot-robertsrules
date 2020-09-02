@@ -143,3 +143,20 @@ describe 'robertsrules', ->
             ['alice', 'present+']
             ['alice', 'present-']
           ]
+
+  it 'can list the meeting attendees', ->
+    @room.user.say('alice', '@hubot start meeting').then =>
+      @room.user.say('alice', 'present+').then =>
+          @room.user.say('alice', '@hubot who\'s on the call?').then =>
+            @room.user.say('alice', 'present-').then =>
+              @room.user.say('alice', '@hubot who is here?').then =>
+                expect(@room.messages).to.eql [
+                  ['alice', '@hubot start meeting']
+                  ['hubot', 'I have prepared the meeting.']
+                  ['alice', 'present+']
+                  ['alice', '@hubot who\'s on the call?']
+                  ['hubot', 'I see alice present on this call']
+                  ['alice', 'present-']
+                  ['alice', '@hubot who is here?']
+                  ['hubot', 'I see no one present on this call']
+                ]
