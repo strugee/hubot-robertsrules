@@ -132,3 +132,14 @@ describe 'robertsrules', ->
             ['hubot', 'I see alice on the speaker list']
             ['alice', 'ack']
           ]
+
+  it 'does not verbally respond to present+ or present-', ->
+    @room.user.say('alice', '@hubot start meeting').then =>
+      @room.user.say('alice', 'present+').then =>
+        @room.user.say('alice', 'present-').then =>
+          expect(@room.messages).to.eql [
+            ['alice', '@hubot start meeting']
+            ['hubot', 'I have prepared the meeting.']
+            ['alice', 'present+']
+            ['alice', 'present-']
+          ]
