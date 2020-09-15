@@ -110,6 +110,7 @@ describe 'robertsrules', ->
 
   it 'hears q+', testQPlusCmd('q+')
   it 'hears queue+', testQPlusCmd('queue+')
+  it 'doesn\'t care about the case of q+', testQPlusCmd('Q+')
 
   it 'hears q-', testQMinusCmd('q-')
   it 'hears queue-', testQMinusCmd('queue-')

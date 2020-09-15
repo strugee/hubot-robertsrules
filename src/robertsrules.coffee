@@ -93,33 +93,36 @@ module.exports = (robot) ->
 
   # Obviously we could jam all these into the same regexp, but it's so much easier to read this way
 
+  # NOTE: if you add new regexes here, don't forget about the `i` flag! Users get confused otherwise, apparently (mostly with q+/q-/q?)
+
   # q+ and variants
-  robot.hear /^q\+(?<name> .+)?$/, wrapRequireMeeting qPlus
-  robot.hear /^queue\+(?<name> .+)?$/, wrapRequireMeeting qPlus
-  robot.hear /^(?<name>.+ )?raises? hand$/, wrapRequireMeeting qPlus
-  robot.hear /^sees (?<name>.+ ) raise hands?$/, wrapRequireMeeting qPlus
+  robot.hear /^q\+(?<name> .+)?$/i, wrapRequireMeeting qPlus
+  robot.hear /^queue\+(?<name> .+)?$/i, wrapRequireMeeting qPlus
+  robot.hear /^(?<name>.+ )?raises? hand$/i, wrapRequireMeeting qPlus
+  robot.hear /^sees (?<name>.+ ) raise hands?$/i, wrapRequireMeeting qPlus
 
   # q- and variants
-  robot.hear /^q\-(?<name> .+)?$/, wrapRequireMeeting qMinus
-  robot.hear /^queue\-(?<name> .+)?$/, wrapRequireMeeting qMinus
-  robot.hear /^(?<name>.+ )?lowers? hand$/, wrapRequireMeeting qMinus
-  robot.hear /^sees (?<name>.+ ) lower hands?$/, wrapRequireMeeting qMinus
+  robot.hear /^[qQ]\-(?<name> .+)?$/i, wrapRequireMeeting qMinus
+  robot.hear /^\-(?<name> .+)?$/i, wrapRequireMeeting qMinus
+  robot.hear /^[qQ]ueue\-(?<name> .+)?$/i, wrapRequireMeeting qMinus
+  robot.hear /^(?<name>.+ )?lowers? hand$/i, wrapRequireMeeting qMinus
+  robot.hear /^sees (?<name>.+ ) lower hands?$/i, wrapRequireMeeting qMinus
 
   # ack and variants
-  robot.hear /^acks?(?<name> .+)$/, wrapRequireMeeting qMinus
-  robot.hear /^recognizes?(?<name> .+)$/, wrapRequireMeeting qMinus
+  robot.hear /^acks?(?<name> .+)$/i, wrapRequireMeeting qMinus
+  robot.hear /^recognizes?(?<name> .+)$/i, wrapRequireMeeting qMinus
 
   # q? and variants
-  robot.hear /^who('| i)s on queue\?$/, wrapRequireMeeting readSpeakerList
-  robot.hear /^queue\?$/, wrapRequireMeeting readSpeakerList
-  robot.hear /^q\?$/, wrapRequireMeeting readSpeakerList
+  robot.hear /^who('| i)s on queue\?$/i, wrapRequireMeeting readSpeakerList
+  robot.hear /^queue\?$/i, wrapRequireMeeting readSpeakerList
+  robot.hear /^q\?$/i, wrapRequireMeeting readSpeakerList
 
   # present+ and variants
-  robot.hear /^present\+(?<name> .+)?$/, wrapRequireMeeting presentPlus
+  robot.hear /^present\+(?<name> .+)?$/i, wrapRequireMeeting presentPlus
 
   # present- and variants
-  robot.hear /^present\-(?<name> .+)?$/, wrapRequireMeeting presentMinus
+  robot.hear /^present\-(?<name> .+)?$/i, wrapRequireMeeting presentMinus
 
   # who's here? and variants
-  robot.respond /who('| i)s here\?/, wrapRequireMeeting reportAttendees
-  robot.respond /who('| i)s on the (phone|phone call|call|video|videocall|video call|)\?/, wrapRequireMeeting reportAttendees
+  robot.respond /who('| i)s here\?/i, wrapRequireMeeting reportAttendees
+  robot.respond /who('| i)s on the (phone|phone call|call|video|videocall|video call|)\?/i, wrapRequireMeeting reportAttendees
